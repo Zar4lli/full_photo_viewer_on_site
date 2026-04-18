@@ -1,0 +1,130 @@
+.viewer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.96);
+    display: none;
+    z-index: 99999;
+}
+
+.viewer-overlay.active {
+    display: block;
+}
+
+.viewer-toolbar {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 30;
+    pointer-events: none;
+}
+
+.viewer-controls {
+    pointer-events: auto;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.viewer-btn {
+    border: none;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.viewer-stage {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    touch-action: none;
+}
+
+.viewer-stage.dragging {
+    cursor: grabbing;
+}
+
+.viewer-image {
+    display: block;
+    max-width: none;
+    max-height: none;
+    transform-origin: center center;
+    will-change: transform;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
+.viewer-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 25;
+    width: 56px;
+    height: 56px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.viewer-nav.prev {
+    left: 20px;
+}
+
+.viewer-nav.next {
+    right: 20px;
+}
+
+.viewer-info {
+    position: fixed;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    z-index: 28;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ddd;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-align: center;
+    width: max-content;
+    max-width: calc(100vw - 20px);
+    line-height: 1.4;
+    word-break: break-word;
+    pointer-events: none;
+}
+
+[data-viewer] {
+    cursor: zoom-in;
+}
+
+@media (max-width: 768px) {
+    .viewer-btn {
+        padding: 9px 12px;
+        font-size: 15px;
+    }
+
+    .viewer-nav {
+        width: 46px;
+        height: 46px;
+        font-size: 22px;
+    }
+
+    .viewer-info {
+        bottom: calc(env(safe-area-inset-bottom, 0px) + 10px);
+        font-size: 13px;
+        max-width: calc(100vw - 16px);
+    }
+}
