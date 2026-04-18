@@ -1,0 +1,17 @@
+# Node (если будешь использовать)
+node_modules/
+
+# Логи
+*.log
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Кеш
+dist/
+build/
